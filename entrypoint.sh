@@ -12,6 +12,7 @@ if [[ "$1" == "nami" && "$2" == "start" ]] || [[ "$1" == "/init.sh" ]]; then
   nami_initialize apache php dokuwiki
 fi
 
+
 export DOKU=/bitnami/dokuwiki
 # Overwrite the local configuration on container start
 info "Overwriting conf/local.php..."
@@ -25,5 +26,8 @@ for orig_path in $(find /liquid/plugins/ -type d -maxdepth 1 -mindepth 1); do
 done
 
 info "Starting dokuwiki... "
+
+# When apache does eventually boot, follow its logs
+( while true; do tail -f /opt/bitnami/apache/logs/error_log || sleep 5; done ) &
 
 exec tini -- "$@"
