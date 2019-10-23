@@ -22,13 +22,13 @@ for orig_path in $(find /liquid/plugins/ -type d -maxdepth 1 -mindepth 1); do
   cp -a "/liquid/plugins/$plugin" "$DOKU/lib/plugins/$plugin"
 done
 
+# Overwrite the "liquid" theme
+rm -rf "$DOKU/lib/tpl/liquid"
+cp -a "/liquid/tpl/liquid" "$DOKU/lib/tpl/liquid"
+
 info "Starting dokuwiki... "
 
 # When apache does eventually boot, follow its logs
 ( while true; do tail -f /opt/bitnami/apache/logs/error_log || sleep 5; done ) &
-
-echo '####################3'
-env
-echo '####################3'
 
 exec /opt/bitnami/apache/bin/httpd -DFOREGROUND -f /opt/bitnami/apache/conf/httpd.conf

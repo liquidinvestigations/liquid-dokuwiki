@@ -15,7 +15,7 @@ RUN curl -L https://github.com/samwilson/dokuwiki-plugin-addnewpage/archive/9856
  && mv /tmp/addnewpage/dokuwiki-plugin-addnewpage-9856122f05a5d8cedc363634e34b016249564f92 /liquid/plugins/addnewpage \
  && rm -rf /tmp/addnewpage.zip /tmp/addnewpage
 
-RUN chown -R daemon: /liquid/plugins
+RUN chown -R daemon: /liquid/plugins /liquid/tpl
 
 EXPOSE 80
 ENTRYPOINT ["/usr/local/bin/tini", "--"]

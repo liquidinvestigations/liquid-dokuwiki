@@ -8,6 +8,7 @@ $conf['title'] .= $_SERVER["LIQUID_DOMAIN"];
 $conf['title'] .= '/embed.js"></script>';
 
 $conf['lang'] = 'en';
+$conf['template'] = 'liquid';
 $conf['license'] = '0';
 $conf['useacl'] = 1;
 $conf['superuser'] = '@admin';
