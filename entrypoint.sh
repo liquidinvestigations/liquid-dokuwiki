@@ -30,4 +30,4 @@ info "Starting dokuwiki... "
 # When apache does eventually boot, follow its logs
 ( while true; do tail -f /opt/bitnami/apache/logs/error_log || sleep 5; done ) &
 
-exec tini -- "$@"
+exec /opt/bitnami/apache/bin/httpd -f /opt/bitnami/apache/conf/httpd.conf

@@ -18,5 +18,5 @@ RUN curl -L https://github.com/samwilson/dokuwiki-plugin-addnewpage/archive/9856
 RUN chown -R daemon: /liquid/plugins
 
 EXPOSE 80
-ENTRYPOINT [ "/liquid/entrypoint.sh" ]
-CMD [ "nami", "start", "--foreground", "apache" ]
+ENTRYPOINT ["/tini", "--"]
+CMD ["/liquid/entrypoint.sh"]
