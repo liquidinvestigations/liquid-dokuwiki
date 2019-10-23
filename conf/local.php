@@ -1,10 +1,10 @@
 <?php
-$conf['title']  = '<a style="display:inline-block;margin-left:10px;" href="'
-$conf['title'] .= $_ENV["LIQUID_CORE_URL"]
-$conf['title'] .= '">&#8594; '
-$conf['title'] .= $_ENV["LIQUID_TITLE"]
-$conf['title'] .= '</a><script src="https://hypothesis.'
-$conf['title'] .= $_ENV["LIQUID_DOMAIN"]
+$conf['title']  = '<a style="display:inline-block;margin-left:10px;" href="';
+$conf['title'] .= $_ENV["LIQUID_CORE_URL"];
+$conf['title'] .= '">&#8594; ';
+$conf['title'] .= $_ENV["LIQUID_TITLE"];
+$conf['title'] .= '</a><script src="https://hypothesis.';
+$conf['title'] .= $_ENV["LIQUID_DOMAIN"];
 $conf['title'] .= '/embed.js"></script>';
 
 $conf['lang'] = 'en';

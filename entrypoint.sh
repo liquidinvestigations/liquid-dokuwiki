@@ -16,10 +16,11 @@ fi
 info "Overwriting conf/local.php..."
 cp /liquid/conf/local.php ./conf/local.php
 
-for plugin in /liquid/plugins/*; do
-  info "(Re)installing plugin $i..."
-  rm -rf "./lib/plugins/$i"
-  cp -av "/liquid/plugins/$i" "./lib/plugins/$i"
+for orig_path in $(find /liquid/plugins/ -type d -maxdepth 1 -mindepth 1); do
+  plugin=$(basename "$orig_path")
+  info "(Re)installing plugin $plugin..."
+  rm -rf "./lib/plugins/$plugin"
+  cp -av "/liquid/plugins/$plugin" "./lib/plugins/$plugin"
 done
 
 info "Starting dokuwiki... "
