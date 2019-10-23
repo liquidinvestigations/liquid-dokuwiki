@@ -12,15 +12,16 @@ if [[ "$1" == "nami" && "$2" == "start" ]] || [[ "$1" == "/init.sh" ]]; then
   nami_initialize apache php dokuwiki
 fi
 
+export DOKU=/bitnami/dokuwiki
 # Overwrite the local configuration on container start
 info "Overwriting conf/local.php..."
-cp /liquid/conf/local.php ./conf/local.php
+cp /liquid/conf/local.php $DOKU/conf/local.php
 
 for orig_path in $(find /liquid/plugins/ -type d -maxdepth 1 -mindepth 1); do
   plugin=$(basename "$orig_path")
   info "(Re)installing plugin $plugin..."
-  rm -rf "./lib/plugins/$plugin"
-  cp -av "/liquid/plugins/$plugin" "./lib/plugins/$plugin"
+  rm -rf "$DOKU/lib/plugins/$plugin"
+  cp -a "/liquid/plugins/$plugin" "$DOKU/lib/plugins/$plugin"
 done
 
 info "Starting dokuwiki... "

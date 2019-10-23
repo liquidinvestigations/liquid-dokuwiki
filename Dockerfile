@@ -5,8 +5,6 @@ RUN set -e \
  && apt-get install  -qq -y --no-install-recommends \
     curl unzip
 
-WORKDIR /bitnami/dokuwiki
-
 ADD . /liquid
 
 RUN cat /liquid/httpd-pass-envs.conf >> /opt/bitnami/apache/conf/httpd.conf
