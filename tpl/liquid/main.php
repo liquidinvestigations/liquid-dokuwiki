@@ -31,6 +31,10 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 
         <?php include('tpl_header.php') ?>
 
+        <!-- LIQUID INVESTIGATIONS - ADD NEW PAGE FORM EVERYWHERE -->
+        <?php echo p_render('xhtml',p_get_instructions('{{NEWPAGE}}'),$info) ?>
+        <!-- LIQUID INVESTIGATIONS -->
+
         <div class="wrapper group">
 
             <?php if($showSidebar): ?>
