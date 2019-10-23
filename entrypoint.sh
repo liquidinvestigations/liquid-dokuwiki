@@ -26,9 +26,13 @@ done
 rm -rf "$DOKU/lib/tpl/liquid"
 cp -a "/liquid/tpl/liquid" "$DOKU/lib/tpl/liquid"
 
+# Overwrite the liquid-envs.conf HTTPD config
+cp -av /liquid/conf/httpd/liquid-envs.conf /opt/bitnami/apache/conf/vhosts/liquid-envs.conf
+
+
 info "Starting dokuwiki... "
 
 # When apache does eventually boot, follow its logs
-( while true; do tail -f /opt/bitnami/apache/logs/error_log || sleep 5; done ) &
+tail -F /opt/bitnami/apache/logs/error_log &
 
 exec /opt/bitnami/apache/bin/httpd -DFOREGROUND -f /opt/bitnami/apache/conf/httpd.conf
