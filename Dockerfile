@@ -5,6 +5,8 @@ RUN set -e \
  && apt-get install  -qq -y --no-install-recommends \
     curl unzip
 
+RUN mkdir -p /liquid/tpl
+RUN cp -a /opt/bitnami/dokuwiki/lib/tpl/dokuwiki /liquid/tpl/liquid
 ADD . /liquid
 
 # Download and store the "addnewpage" plugin under /liquid/plugins
