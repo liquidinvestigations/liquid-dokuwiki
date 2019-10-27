@@ -1,11 +1,5 @@
 <?php
-$conf['title']  = '<a style="display:inline-block;margin-left:10px;" href="';
-$conf['title'] .= $_SERVER["LIQUID_CORE_URL"];
-$conf['title'] .= '">&#8594; ';
-$conf['title'] .= $_SERVER["LIQUID_TITLE"];
-$conf['title'] .= '</a><script src="https://hypothesis.';
-$conf['title'] .= $_SERVER["LIQUID_DOMAIN"];
-$conf['title'] .= '/embed.js"></script>';
+$conf['title']  = '<a style="display:inline-block;margin-left:10px;" href="' . $_SERVER["LIQUID_CORE_URL"] . '">&#8594; ' . $_SERVER["LIQUID_TITLE"] . '</a><script src="https://hypothesis.' . $_SERVER["LIQUID_DOMAIN"] . '/embed.js"></script>';
 
 $conf['lang'] = 'en';
 $conf['template'] = 'liquid';

@@ -1,0 +1,7 @@
+base   liquid
+author Liquid Investigations
+email  rcij@riseup.net
+date   2019-10-27
+name   Liquid Investigations Authentication
+desc   This overrides the login flow to trust our proxy's headers.
+url    https://github.com/liquidinvestigations
