@@ -22,6 +22,14 @@ RUN /liquid/add-plugin.sh \
     move \
     https://github.com/michitux/dokuwiki-plugin-move \
     5538001d5f14ef1001bf3412d2426f62e07ddf7f
+RUN /liquid/add-plugin.sh \
+    csv \
+    https://github.com/cosmocode/csv \
+    f12410b9a2d21895e308cab9aff30e789ed69582
+RUN /liquid/add-plugin.sh \
+    highlight \
+    https://github.com/munduch/dokuwiki-highlight \
+    ca744e0c6123fa73abf7f96bc8998173de04b6fa
 
 RUN chown -R daemon: /liquid/plugins /liquid/tpl
 
