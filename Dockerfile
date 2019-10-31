@@ -10,10 +10,26 @@ RUN cp -a /opt/bitnami/dokuwiki/lib/tpl/dokuwiki /liquid/tpl/liquid
 ADD . /liquid
 
 # Download and store the "addnewpage" plugin under /liquid/plugins
-RUN curl -L https://github.com/samwilson/dokuwiki-plugin-addnewpage/archive/9856122f05a5d8cedc363634e34b016249564f92.zip -o /tmp/addnewpage.zip \
- && unzip /tmp/addnewpage.zip -d /tmp/addnewpage \
- && mv /tmp/addnewpage/dokuwiki-plugin-addnewpage-9856122f05a5d8cedc363634e34b016249564f92 /liquid/plugins/addnewpage \
- && rm -rf /tmp/addnewpage.zip /tmp/addnewpage
+RUN /liquid/add-plugin.sh \
+    addnewpage \
+    https://github.com/samwilson/dokuwiki-plugin-addnewpage \
+    9856122f05a5d8cedc363634e34b016249564f92
+RUN /liquid/add-plugin.sh \
+    color \
+    https://github.com/hanche/dokuwiki_color_plugin \
+    17447c465031f348031b9f86507026c91f23186b
+RUN /liquid/add-plugin.sh \
+    move \
+    https://github.com/michitux/dokuwiki-plugin-move \
+    5538001d5f14ef1001bf3412d2426f62e07ddf7f
+RUN /liquid/add-plugin.sh \
+    csv \
+    https://github.com/cosmocode/csv \
+    f12410b9a2d21895e308cab9aff30e789ed69582
+RUN /liquid/add-plugin.sh \
+    highlight \
+    https://github.com/munduch/dokuwiki-highlight \
+    ca744e0c6123fa73abf7f96bc8998173de04b6fa
 
 RUN chown -R daemon: /liquid/plugins /liquid/tpl
 
