@@ -4,6 +4,7 @@ $conf['lang'] = 'en';
 $conf['template'] = 'liquid';
 $conf['license'] = '0';
 $conf['useacl'] = 1;
+$conf['sneaky_index'] = 1;
 $conf['superuser'] = '@admin';
 $conf['disableactions'] = 'register';
 $conf['authtype'] = 'liquid';
