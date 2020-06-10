@@ -34,5 +34,5 @@ RUN /liquid/add-plugin.sh \
 RUN chown -R daemon: /liquid/plugins /liquid/tpl
 
 EXPOSE 80
-ENTRYPOINT ["/usr/local/bin/tini", "--"]
+ENTRYPOINT ["/tini", "--"]
 CMD ["/liquid/entrypoint.sh"]
