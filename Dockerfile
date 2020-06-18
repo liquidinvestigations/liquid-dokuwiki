@@ -1,4 +1,4 @@
-FROM bitnami/dokuwiki:0.20180422.201901061035
+FROM bitnami/dokuwiki:0.20180422.202005011246-debian-10-r39
 
 RUN set -e \
  && apt-get update -qq \
@@ -34,5 +34,5 @@ RUN /liquid/add-plugin.sh \
 RUN chown -R daemon: /liquid/plugins /liquid/tpl
 
 EXPOSE 80
-ENTRYPOINT ["/usr/local/bin/tini", "--"]
+ENTRYPOINT ["/opt/bitnami/common/bin/tini", "--"]
 CMD ["/liquid/entrypoint.sh"]
