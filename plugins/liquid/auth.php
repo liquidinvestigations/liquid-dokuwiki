@@ -28,6 +28,6 @@ class auth_plugin_liquid extends DokuWiki_Auth_Plugin {
     return false;
   }
   function logOff() {
-    send_redirect('/__auth/logout');
+    send_redirect("/oauth2/sign_out?rd=".urlencode(getenv("LIQUID_CORE_LOGOUT_URL")));
   }
 }
