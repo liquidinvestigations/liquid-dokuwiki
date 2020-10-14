@@ -30,6 +30,12 @@ RUN /liquid/add-plugin.sh \
     highlight \
     https://github.com/munduch/dokuwiki-highlight \
     ca744e0c6123fa73abf7f96bc8998173de04b6fa
+# if we ever need it...
+#RUN /liquid/add-plugin.sh \
+#    oauth \
+#    https://github.com/cosmocode/dokuwiki-plugin-oauth \
+#    8c4b6783010f9f47f9f5c076fb3fd9d5127d724d
+
 
 RUN chown -R daemon: /liquid/plugins /liquid/tpl
 
