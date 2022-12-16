@@ -28,10 +28,10 @@ RUN /liquid/add-plugin.sh \
     f12410b9a2d21895e308cab9aff30e789ed69582
 # the repo for the dokuwiki-highlight plugin doesn't exist anymore.
 # so the build fails.
-RUN /liquid/add-plugin.sh \
-    highlight \
-    https://github.com/munduch/dokuwiki-highlight \
-    ca744e0c6123fa73abf7f96bc8998173de04b6fa
+#RUN /liquid/add-plugin.sh \
+#    highlight \
+#    https://github.com/munduch/dokuwiki-highlight \
+#    ca744e0c6123fa73abf7f96bc8998173de04b6fa
 RUN /liquid/add-plugin.sh \
     virtualgroup \
     https://github.com/cosmocode/virtualgroup \
