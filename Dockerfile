@@ -30,6 +30,11 @@ RUN /liquid/add-plugin.sh \
     highlight \
     https://github.com/munduch/dokuwiki-highlight \
     ca744e0c6123fa73abf7f96bc8998173de04b6fa
+RUN /liquid/add-plugin.sh \
+    virtualgroup \
+    https://github.com/cosmocode/virtualgroup \
+    fac6acf4b4db40ca28c3f4d4b8f0871049fe0df3
+
 # if we ever need it...
 #RUN /liquid/add-plugin.sh \
 #    oauth \
