@@ -26,6 +26,8 @@ RUN /liquid/add-plugin.sh \
     csv \
     https://github.com/cosmocode/csv \
     f12410b9a2d21895e308cab9aff30e789ed69582
+# the repo for the dokuwiki-highlight plugin doesn't exist anymore.
+# so the build fails.
 RUN /liquid/add-plugin.sh \
     highlight \
     https://github.com/munduch/dokuwiki-highlight \
