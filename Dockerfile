@@ -28,8 +28,13 @@ RUN /liquid/add-plugin.sh \
     f12410b9a2d21895e308cab9aff30e789ed69582
 RUN /liquid/add-plugin.sh \
     highlight \
-    https://github.com/munduch/dokuwiki-highlight \
-    ca744e0c6123fa73abf7f96bc8998173de04b6fa
+    https://github.com/liquidinvestigations/dokuwiki-highlight \
+    272e672db204aec43f9072cd72f51d8f94622a6e
+RUN /liquid/add-plugin.sh \
+    virtualgroup \
+    https://github.com/cosmocode/virtualgroup \
+    fac6acf4b4db40ca28c3f4d4b8f0871049fe0df3
+
 # if we ever need it...
 #RUN /liquid/add-plugin.sh \
 #    oauth \
