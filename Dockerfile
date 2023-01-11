@@ -42,6 +42,9 @@ RUN /liquid/add-plugin.sh \
     indexmenu \
     https://github.com/samuelet/indexmenu \
     571dc33ef0e6357e536abf91c2eaceda8effd959
+    bookcreator \
+    https://github.com/Klap-in/dokuwiki-plugin-bookcreator \
+    c4839451d995400bfb595120ea040898f1979145
 
 # if we ever need it...
 #RUN /liquid/add-plugin.sh \
