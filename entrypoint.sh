@@ -13,6 +13,8 @@ nami_initialize apache php dokuwiki
 export DOKU=/bitnami/dokuwiki
 info "Overwriting conf/local.php..."
 cp /liquid/conf/local.protected.php $DOKU/conf/local.protected.php
+info "Overwriting conf/plugins.protected.php..."
+cp /liquid/conf/plugins.protected.php $DOKU/conf/plugins.protected.php
 
 # Overwrite plugins with the ones under /liquid/plugins/
 for orig_path in $(find /liquid/plugins/ -type d -maxdepth 1 -mindepth 1); do
