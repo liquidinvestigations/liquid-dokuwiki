@@ -23,7 +23,7 @@ class auth_plugin_liquid extends DokuWiki_Auth_Plugin {
       $USERINFO['user'] = $userid;
       $USERINFO['mail'] = $_SERVER['HTTP_X_FORWARDED_EMAIL'];
       $USERINFO['name'] = $_SERVER['HTTP_X_FORWARDED_PREFERRED_USERNAME'];
-      $USERINFO['grps'] = $groups;
+      $USERINFO['grps'] = arry_merge($groups, $USERINFO['grps']);
 
       $_SERVER['REMOTE_USER'] = $userid;
       $_SESSION[DOKU_COOKIE]['auth']['user'] = $userid;
