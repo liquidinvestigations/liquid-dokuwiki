@@ -23,6 +23,9 @@ class auth_plugin_liquid extends DokuWiki_Auth_Plugin {
       $USERINFO['user'] = $userid;
       $USERINFO['mail'] = $_SERVER['HTTP_X_FORWARDED_EMAIL'];
       $USERINFO['name'] = $_SERVER['HTTP_X_FORWARDED_PREFERRED_USERNAME'];
+      if (!isset($USERINFO['grps'])) {
+          $USERINFO['grps'] = array();
+      }
       $USERINFO['grps'] = array_merge($groups, $USERINFO['grps']);
 
       $_SERVER['REMOTE_USER'] = $userid;
@@ -35,4 +38,18 @@ class auth_plugin_liquid extends DokuWiki_Auth_Plugin {
   function logOff() {
     send_redirect("/oauth2/sign_out?rd=".urlencode(getenv("LIQUID_CORE_LOGOUT_URL")));
   }
+
+    function getUserData($user, $requireGroups = true) {
+        $groups_hdr = $_SERVER['HTTP_X_FORWARDED_GROUPS'];
+        // split by spaces and comma
+        $groups = preg_split("/[\s,]+/", $groups_hdr);
+        if (!isset($USERINFO['grps'])) {
+            $USERINFO['grps'] = array();
+        }
+        return array(
+            'name' => $_SERVER['HTTP_X_FORWARDED_PREFERRED_USERNAME'],
+            'mail' => $_SERVER['HTTP_X_FORWARDED_EMAIL'],
+            'grps' => array_merge($groups, $USERINFO['grps'])
+        )
+    }
 }
