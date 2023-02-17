@@ -32,7 +32,9 @@ $showSidebar = $hasSidebar && ($ACT=='show');
         <?php include('tpl_header.php') ?>
 
         <!-- LIQUID INVESTIGATIONS - ADD NEW PAGE FORM EVERYWHERE -->
-        <b>Crate a New Page:</b> <?php echo p_render('xhtml',p_get_instructions('{{NEWPAGE}}'),$info) ?> </br>
+        <b>Create a New Page:</b> <?php echo p_render('xhtml',p_get_instructions('{{NEWPAGE}}'),$info) ?>
+        <a href="/doku.php?id=tools:index" style="text-align:center;"><h5>Sitemap</h5></a>
+        </br>
         <!-- LIQUID INVESTIGATIONS -->
 
         <div class="wrapper group">

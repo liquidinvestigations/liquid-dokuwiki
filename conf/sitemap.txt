@@ -1,0 +1,12 @@
+====== Sitemap ======
+
+
+
+{{indexmenu>..|navbar nocookie}}
+
+
+=== Custom Sitemaps ===
+
+You can also use the "Insert Indexmenu Tree" button from the page editor (just before text color) to create a custom index for your own namespace, and put it anywhere in the page.
+
+See: https://www.dokuwiki.org/plugin:indexmenu

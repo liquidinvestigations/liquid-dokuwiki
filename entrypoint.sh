@@ -28,6 +28,13 @@ done
 rm -rf "$DOKU/lib/tpl/liquid"
 cp -a "/liquid/tpl/liquid" "$DOKU/lib/tpl/liquid"
 
+# Overwrite the "tools:index" page
+mkdir -p "$DOKU/data/pages/tools"
+if ! [[ -f "$DOKU/data/pages/tools/index.txt" ]]; then
+  cp /liquid/conf/sitemap.txt "$DOKU/data/pages/tools/index.txt"
+fi
+
+
 # Overwrite the liquid-envs.conf HTTPD config
 cp -av /liquid/conf/httpd/liquid-envs.conf /opt/bitnami/apache/conf/vhosts/liquid-envs.conf
 
