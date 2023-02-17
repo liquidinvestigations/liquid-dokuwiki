@@ -18,7 +18,6 @@ class auth_plugin_liquid extends DokuWiki_Auth_Plugin {
       $groups_hdr = $_SERVER['HTTP_X_FORWARDED_GROUPS'];
       // split by spaces and comma
       $groups = preg_split("/[\s,]+/", $groups_hdr);
-      error_log('AUTH User = ' . $userid . "   Groups = " . implode(' ', $groups));
 
       $USERINFO['user'] = $userid;
       $USERINFO['mail'] = $_SERVER['HTTP_X_FORWARDED_EMAIL'];
@@ -27,10 +26,12 @@ class auth_plugin_liquid extends DokuWiki_Auth_Plugin {
           $USERINFO['grps'] = array();
       }
       $USERINFO['grps'] = array_merge($groups, $USERINFO['grps']);
+      array_push($USERINFO['grps'], "ALL");
 
       $_SERVER['REMOTE_USER'] = $userid;
       $_SESSION[DOKU_COOKIE]['auth']['user'] = $userid;
       $_SESSION[DOKU_COOKIE]['auth']['info'] = $USERINFO;
+      error_log('AUTH User = ' . $userid . "   Groups = " . implode(', ', $USERINFO['grps']));
       return true;
     }
     return false;
@@ -46,10 +47,15 @@ class auth_plugin_liquid extends DokuWiki_Auth_Plugin {
     if (!isset($USERINFO['grps'])) {
             $USERINFO['grps'] = array();
     }
+    $USERINFO['grps'] = array_merge($groups, $USERINFO['grps']);
+    array_push($USERINFO['grps'], "ALL");
+
+    error_log('GET USER INFO User = ' . $user . "   Groups = " . implode(', ', $USERINFO['grps']));
+
     return array(
             'name' => $_SERVER['HTTP_X_FORWARDED_PREFERRED_USERNAME'],
             'mail' => $_SERVER['HTTP_X_FORWARDED_EMAIL'],
-            'grps' => array_merge($groups, $USERINFO['grps'])
+            'grps' => $USERINFO['grps'],
     );
     }
 }
