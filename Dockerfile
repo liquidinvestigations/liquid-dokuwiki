@@ -38,6 +38,10 @@ RUN /liquid/add-plugin.sh \
     sneakyindexfix \
     https://github.com/lisps/plugin-sneakyindexfix \
     595f2fc44c7c7bcb51ef95ecfc2d5f221d0df3d6
+RUN /liquid/add-plugin.sh \
+    indexmenu \
+    https://github.com/samuelet/indexmenu \
+    571dc33ef0e6357e536abf91c2eaceda8effd959
 
 # if we ever need it...
 #RUN /liquid/add-plugin.sh \
