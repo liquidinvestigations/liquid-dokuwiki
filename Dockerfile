@@ -34,6 +34,10 @@ RUN /liquid/add-plugin.sh \
     virtualgroup \
     https://github.com/cosmocode/virtualgroup \
     fac6acf4b4db40ca28c3f4d4b8f0871049fe0df3
+RUN /liquid/add-plugin.sh \
+    sneakyindexfix \
+    https://github.com/lisps/plugin-sneakyindexfix \
+    595f2fc44c7c7bcb51ef95ecfc2d5f221d0df3d6
 
 # if we ever need it...
 #RUN /liquid/add-plugin.sh \
