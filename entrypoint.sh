@@ -30,9 +30,7 @@ cp -a "/liquid/tpl/liquid" "$DOKU/lib/tpl/liquid"
 
 # Overwrite the "tools:index" page
 mkdir -p "$DOKU/data/pages/tools"
-if ! [[ -f "$DOKU/data/pages/tools/index.txt" ]]; then
-  cp /liquid/conf/sitemap.txt "$DOKU/data/pages/tools/index.txt"
-fi
+cp /liquid/conf/sitemap.txt "$DOKU/data/pages/tools/index.txt"
 
 
 # Overwrite the liquid-envs.conf HTTPD config
