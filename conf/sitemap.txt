@@ -2,7 +2,7 @@
 
 
 
-{{indexmenu>..#1|navbar nocookie}}
+{{indexmenu>..|navbar nocookie}}
 
 
 === Custom Sitemaps ===
