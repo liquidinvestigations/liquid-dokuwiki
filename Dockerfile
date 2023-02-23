@@ -15,11 +15,11 @@ ADD . /liquid
 RUN /liquid/add-plugin.sh \
     addnewpage \
     https://github.com/samwilson/dokuwiki-plugin-addnewpage \
-    9856122f05a5d8cedc363634e34b016249564f92
+    9856122f05a5d8cedc363634e34b016249564f92  # 2016
 RUN /liquid/add-plugin.sh \
     color \
     https://github.com/hanche/dokuwiki_color_plugin \
-    17447c465031f348031b9f86507026c91f23186b
+    e28b337ddad77b04831d98c0ce71d3d546c7240f  # 2022-10-19
 RUN /liquid/add-plugin.sh \
     move \
     https://github.com/michitux/dokuwiki-plugin-move \
@@ -27,7 +27,7 @@ RUN /liquid/add-plugin.sh \
 RUN /liquid/add-plugin.sh \
     csv \
     https://github.com/cosmocode/csv \
-    f12410b9a2d21895e308cab9aff30e789ed69582
+    04fa173229cdc1caca63eed5d272c1b9147cb0c0 # 2022-01-04
 RUN /liquid/add-plugin.sh \
     highlight \
     https://github.com/liquidinvestigations/dokuwiki-highlight \
@@ -35,15 +35,15 @@ RUN /liquid/add-plugin.sh \
 RUN /liquid/add-plugin.sh \
     virtualgroup \
     https://github.com/cosmocode/virtualgroup \
-    fac6acf4b4db40ca28c3f4d4b8f0871049fe0df3
+    39d3d0cafac9bcca0e3cef4bdb930558242a8d1a  # 2023-01-16
 RUN /liquid/add-plugin.sh \
     sneakyindexfix \
     https://github.com/lisps/plugin-sneakyindexfix \
-    595f2fc44c7c7bcb51ef95ecfc2d5f221d0df3d6
+    595f2fc44c7c7bcb51ef95ecfc2d5f221d0df3d6  # 2018
 RUN /liquid/add-plugin.sh \
     indexmenu \
     https://github.com/samuelet/indexmenu \
-    571dc33ef0e6357e536abf91c2eaceda8effd959
+    dd97c882d257200e48770adb7201313795f37216  # 2023-01-22
 
 # if we ever need it...
 #RUN /liquid/add-plugin.sh \
@@ -52,8 +52,9 @@ RUN /liquid/add-plugin.sh \
 #    8c4b6783010f9f47f9f5c076fb3fd9d5127d724d
 
 
-RUN chown -R daemon: /liquid/plugins /liquid/tpl
+RUN chown -v -R daemon: /liquid
+RUN chown -v -R daemon: /opt/bitnami/dokuwiki
 
-EXPOSE 80
+EXPOSE 8080
 ENTRYPOINT ["/usr/bin/tini", "--"]
 CMD ["/liquid/entrypoint.sh"]

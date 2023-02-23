@@ -54,9 +54,17 @@ cp -a "/liquid/tpl/liquid" "$DOKU/lib/tpl/liquid"
 mkdir -p "$DOKU/data/pages/tools"
 cp /liquid/conf/sitemap.txt "$DOKU/data/pages/tools/index.txt"
 
+# make log dir
+mkdir -p "$DOKU/data/log/"
+# chmod a+rwx "$DOKU/data/log/"
+
 
 # Overwrite the liquid-envs.conf HTTPD config
 cp -av /liquid/conf/httpd/liquid-envs.conf /opt/bitnami/apache/conf/vhosts/liquid-envs.conf
+
+# run httpd as root
+sed -i 's/User daemon/User root/' /opt/bitnami/apache/conf/httpd.conf
+sed -i 's/Group daemon/Group root/' /opt/bitnami/apache/conf/httpd.conf
 
 
 info "Starting dokuwiki... "
@@ -64,5 +72,5 @@ info "Starting dokuwiki... "
 # When apache does eventually boot, follow its logs
 tail -F /opt/bitnami/apache/logs/error_log &
 
-# exec /opt/bitnami/apache/bin/httpd -DFOREGROUND -f /opt/bitnami/apache/conf/httpd.conf
-exec /opt/bitnami/scripts/apache/run.sh
+exec /opt/bitnami/apache/bin/httpd -DFOREGROUND -f /opt/bitnami/apache/conf/httpd.conf
+# exec /opt/bitnami/scripts/apache/run.sh
