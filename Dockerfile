@@ -23,7 +23,7 @@ RUN /liquid/add-plugin.sh \
 RUN /liquid/add-plugin.sh \
     move \
     https://github.com/michitux/dokuwiki-plugin-move \
-    5538001d5f14ef1001bf3412d2426f62e07ddf7f
+    f2416147498d9b33e36445820b54e015f1968776  # 2022-01-26
 RUN /liquid/add-plugin.sh \
     csv \
     https://github.com/cosmocode/csv \
