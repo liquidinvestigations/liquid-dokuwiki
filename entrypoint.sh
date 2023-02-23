@@ -1,13 +1,35 @@
 #!/bin/bash -ex
 
-# Cloned from:
-# https://github.com/bitnami/bitnami-docker-dokuwiki/blob/e960874bc62aa061d6b1cb09aa678b923aee2145/0/debian-9/rootfs/app-entrypoint.sh
+# ===================
+# cloned from docker image
 
-. /opt/bitnami/base/functions
-. /opt/bitnami/base/helpers
+set -o errexit
+set -o nounset
+set -o pipefail
+# set -o xtrace # Uncomment this line for debugging purposes
+
+# Load DokuWiki environment
+. /opt/bitnami/scripts/dokuwiki-env.sh
+
+# Load libraries
+. /opt/bitnami/scripts/libbitnami.sh
+. /opt/bitnami/scripts/liblog.sh
+. /opt/bitnami/scripts/libwebserver.sh
 
 print_welcome_page
-nami_initialize apache php dokuwiki
+
+# if [[ "$1" = "/opt/bitnami/scripts/$(web_server_type)/run.sh" || "$1" = "/opt/bitnami/scripts/nginx-php-fpm/run.sh" ]]; then
+info "** Starting DokuWiki setup **"
+/opt/bitnami/scripts/"$(web_server_type)"/setup.sh
+/opt/bitnami/scripts/php/setup.sh
+/opt/bitnami/scripts/dokuwiki/setup.sh
+/post-init.sh
+info "** DokuWiki setup finished! **"
+# fi
+
+# end copy/paste
+# ========================
+
 
 # Overwrite the local configuration
 export DOKU=/bitnami/dokuwiki
@@ -42,4 +64,5 @@ info "Starting dokuwiki... "
 # When apache does eventually boot, follow its logs
 tail -F /opt/bitnami/apache/logs/error_log &
 
-exec /opt/bitnami/apache/bin/httpd -DFOREGROUND -f /opt/bitnami/apache/conf/httpd.conf
+# exec /opt/bitnami/apache/bin/httpd -DFOREGROUND -f /opt/bitnami/apache/conf/httpd.conf
+exec /opt/bitnami/scripts/apache/run.sh
