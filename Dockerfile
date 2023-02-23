@@ -1,9 +1,11 @@
-FROM bitnami/dokuwiki:0.20180422.202005011246-debian-10-r39
+FROM bitnami/dokuwiki:20220731.1.0-debian-11-r60
+
+USER root
 
 RUN set -e \
- && apt-get update -qq \
- && apt-get install  -qq -y --no-install-recommends \
-    curl unzip
+ && apt-get update  \
+ && apt-get install  -y  \
+    curl unzip tini
 
 RUN mkdir -p /liquid/tpl
 RUN cp -a /opt/bitnami/dokuwiki/lib/tpl/dokuwiki /liquid/tpl/liquid
@@ -53,5 +55,5 @@ RUN /liquid/add-plugin.sh \
 RUN chown -R daemon: /liquid/plugins /liquid/tpl
 
 EXPOSE 80
-ENTRYPOINT ["/opt/bitnami/common/bin/tini", "--"]
+ENTRYPOINT ["/usr/bin/tini", "--"]
 CMD ["/liquid/entrypoint.sh"]
