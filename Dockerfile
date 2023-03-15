@@ -42,6 +42,7 @@ RUN /liquid/add-plugin.sh \
     indexmenu \
     https://github.com/samuelet/indexmenu \
     571dc33ef0e6357e536abf91c2eaceda8effd959
+RUN /liquid/add-plugin.sh \
     dw2pdf \
     https://github.com/splitbrain/dokuwiki-plugin-dw2pdf \
     8e03ab9cf11d77ae76d1542cc6bd726e251c7859
