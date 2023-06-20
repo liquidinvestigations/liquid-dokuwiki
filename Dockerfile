@@ -2,6 +2,7 @@ FROM bitnami/dokuwiki:20180422.4.0-debian-10-r16
 
 RUN set -e \
  && apt-get update -qq \
+ && apt-get upgrade  -qq -y \
  && apt-get install  -qq -y --no-install-recommends \
     curl unzip
 
