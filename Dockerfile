@@ -1,4 +1,4 @@
-FROM bitnami/dokuwiki:20180422.4.0-debian-10-r16
+FROM bitnami/dokuwiki:0.20180422.202005011246-debian-10-r39
 
 RUN set -e \
  && apt-get update -qq \
